@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoav Shtibelman — AI Director & Creator</title>
+    <meta name="description" content="Yoav Shtibelman is an AI director and video creator producing cinematic, story-driven films with artificial intelligence.">
+    <meta property="og:title" content="Yoav Shtibelman — AI Director & Creator">
+    <meta property="og:description" content="Cinematic AI filmmaking — from concept to final frame.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}img,video{display:block;max-width:100%}
+        :root{--bg:#080808;--surface:#0f0f0f;--border:#1c1c1c;--text:#ece8e1;--muted:#5a5a5a;--accent:#c9aa71;--accent-dim:rgba(201,170,113,.12);--ff-serif:'Cormorant Garamond',Georgia,serif;--ff-sans:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.4,0,.2,1)}
+        body{background:var(--bg);color:var(--text);font-family:var(--ff-sans);font-weight:300;font-size:1rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+        .label{font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--accent)}
+        #nav{position:fixed;inset:0 0 auto 0;z-index:200;padding:1.75rem 3.5rem;display:flex;justify-content:space-between;align-items:center;transition:background .5s var(--ease),border-color .5s var(--ease);border-bottom:1px solid transparent}
+        #nav.scrolled{background:rgba(8,8,8,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--border)}
+        .nav-logo{font-family:var(--ff-serif);font-size:1rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--text);text-decoration:none}
+        .nav-links{list-style:none;display:flex;gap:2.5rem}
+        .nav-links a{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s}
+        .nav-links a:hover{color:var(--text)}
+        #hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3.5rem 5.5rem;position:relative;overflow:hidden}
+        .hero-orb{position:absolute;inset:0;pointer-events:none}
+        .hero-orb::before{content:'';position:absolute;width:60vw;height:60vw;max-width:900px;max-height:900px;top:-10%;left:-5%;background:radial-gradient(circle,rgba(201,170,113,.07) 0%,transparent 70%);animation:orb-drift 14s ease-in-out infinite alternate}
+        .hero-orb::after{content:'';position:absolute;width:40vw;height:40vw;max-width:600px;max-height:600px;bottom:10%;right:5%;background:radial-gradient(circle,rgba(80,55,20,.09) 0%,transparent 70%);animation:orb-drift 18s ease-in-out infinite alternate-reverse}
+        @keyframes orb-drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(4%,6%) scale(1.08)}}
+        .grain{position:absolute;inset:0;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E")}
+        .hero-content{position:relative;z-index:1}
+        .hero-eyebrow{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--accent);margin-bottom:1.8rem}
+        .hero-title{font-family:var(--ff-serif);font-size:clamp(4.5rem,11vw,10rem);font-weight:300;line-height:.9;letter-spacing:-.02em;margin-bottom:2.5rem}
+        .hero-title em{font-style:italic;color:var(--accent)}
+        .hero-sub{font-size:.88rem;letter-spacing:.06em;color:var(--muted);max-width:46ch;line-height:2}
+        .hero-scroll-hint{position:absolute;bottom:3rem;right:3.5rem;writing-mode:vertical-rl;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:1.2rem}
+        .hero-scroll-hint::before{content:'';display:block;width:1px;height:64px;background:linear-gradient(to bottom,transparent,var(--muted))}
+        .section{padding:9rem 3.5rem}
+        .section-head{display:flex;align-items:center;gap:1.5rem;margin-bottom:4rem}
+        .section-rule{flex:1;height:1px;background:var(--border)}
+        #work{background:var(--bg)}
+        .work-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;gap:3rem}
+        .work-title{font-family:var(--ff-serif);font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;line-height:1.05}
+        .work-note{font-size:.75rem;color:var(--muted);max-width:28ch;text-align:right;line-height:1.8;flex-shrink:0}
+        .work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:var(--border)}
+        .work-grid>*{background:var(--bg)}
+        .work-card{position:relative;overflow:hidden;cursor:pointer}
+        .work-card:nth-child(1){grid-column:span 7}
+        .work-card:nth-child(2){grid-column:span 5}
+        .work-card:nth-child(3){grid-column:span 5}
+        .work-card:nth-child(4){grid-column:span 7}
+        .card-thumb{aspect-ratio:16/9;overflow:hidden;position:relative;background:var(--surface)}
+        .card-thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:none;pointer-events:none}
+        .card-thumb .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0c0c0c 0%,#141414 100%)}
+        .card-thumb .ph::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 35% 50%,rgba(201,170,113,.06) 0%,transparent 55%)}
+        .play-btn{width:52px;height:52px;border:1px solid rgba(201,170,113,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;transition:border-color .3s,transform .3s}
+        .work-card:hover .play-btn{border-color:var(--accent);transform:scale(1.08)}
+        .play-btn svg{width:18px;height:18px;fill:var(--accent);margin-left:3px}
+        .card-overlay{position:absolute;inset:0;background:rgba(8,8,8,.78);opacity:0;transition:opacity .4s var(--ease);display:flex;align-items:center;justify-content:center;z-index:2}
+        .card-overlay span{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+        .work-card:hover .card-overlay{opacity:1}
+        .card-thumb>*{transition:transform .6s var(--ease)}
+        .work-card:hover .card-thumb>*{transform:scale(1.03)}
+        .card-meta{padding:1.25rem 1.6rem 1.5rem;border-top:1px solid var(--border)}
+        .card-cat{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+        .card-name{font-family:var(--ff-serif);font-size:1.35rem;font-weight:400;margin-bottom:.2rem}
+        .card-desc{font-size:.72rem;color:var(--muted);line-height:1.6}
+        #about{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+        .about-grid{display:grid;grid-template-columns:5fr 7fr;gap:7rem;align-items:start}
+        .about-left h2{font-family:var(--ff-serif);font-size:clamp(2.8rem,4.5vw,4rem);font-weight:300;line-height:1.12;margin-bottom:2.5rem}
+        .about-left h2 em{font-style:italic;color:var(--accent)}
+        .capabilities{display:flex;flex-direction:column;gap:0}
+        .cap-item{display:flex;align-items:baseline;gap:1.2rem;padding:.9rem 0;border-bottom:1px solid var(--border);font-size:.75rem;color:var(--muted);letter-spacing:.05em;transition:color .3s}
+        .cap-item:first-child{border-top:1px solid var(--border)}
+        .cap-item:hover{color:var(--text)}
+        .cap-num{font-family:var(--ff-serif);font-size:.9rem;color:var(--border);min-width:1.5rem;transition:color .3s}
+        .cap-item:hover .cap-num{color:var(--accent)}
+        .about-right p{font-size:1.05rem;line-height:1.9;color:var(--muted);margin-bottom:1.4rem}
+        .about-right p strong{color:var(--text);font-weight:400}
+        .about-right p:last-child{margin-bottom:0}
+        .about-quote{margin-top:3rem;padding:2rem 2.5rem;border-left:1px solid var(--accent);background:var(--accent-dim)}
+        .about-quote p{font-family:var(--ff-serif);font-size:1.4rem;font-style:italic;font-weight:300;color:var(--text);line-height:1.6;margin:0}
+        #contact{background:var(--bg);text-align:center}
+        .contact-super{font-family:var(--ff-serif);font-size:clamp(3.5rem,8vw,7rem);font-weight:300;line-height:.95;margin-bottom:1.5rem}
+        .contact-super em{font-style:italic;color:var(--accent)}
+        .contact-sub{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:3.5rem}
+        .contact-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem}
+        .btn{display:inline-flex;align-items:center;gap:.7rem;padding:1rem 2.2rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border);color:var(--muted);transition:all .35s var(--ease);position:relative;overflow:hidden}
+        .btn::before{content:'';position:absolute;inset:0;background:var(--accent-dim);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+        .btn:hover{border-color:var(--accent);color:var(--text)}
+        .btn:hover::before{transform:scaleX(1)}
+        .btn span{position:relative;z-index:1}
+        .btn.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+        .btn.btn-primary::before{background:rgba(0,0,0,.12)}
+        .btn.btn-primary:hover{color:var(--bg)}
+        footer{padding:2rem 3.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+        .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .reveal-delay-1{transition-delay:.1s}
+        .reveal-delay-2{transition-delay:.2s}
+        @media(max-width:900px){#nav{padding:1.5rem 1.75rem}#hero{padding:0 1.75rem 4.5rem}.section{padding:6rem 1.75rem}footer{padding:1.75rem}.work-card:nth-child(1),.work-card:nth-child(2),.work-card:nth-child(3),.work-card:nth-child(4){grid-column:span 12}.work-intro{flex-direction:column}.work-note{text-align:left}.about-grid{grid-template-columns:1fr;gap:4rem}.hero-scroll-hint{display:none}}
+        @media(max-width:560px){.nav-links{gap:1.5rem}.hero-title{font-size:clamp(3.5rem,16vw,5.5rem)}}
+    </style>
+</head>
+<body>
+<nav id="nav">
+    <a href="#" class="nav-logo">Yoav Shtibelman</a>
+    <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+<section id="hero">
+    <div class="hero-orb" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="hero-content">
+        <p class="hero-eyebrow">AI Director &amp; Video Creator</p>
+        <h1 class="hero-title">Yoav<br><em>Shtibelman</em></h1>
+        <p class="hero-sub">Directing cinematic stories at the intersection of<br>human imagination and machine generation.</p>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">Scroll</div>
+</section>
+<section id="work" class="section">
+    <div class="section-head"><span class="label">Selected Works</span><div class="section-rule"></div></div>
+    <div class="work-intro">
+        <h2 class="work-title reveal">Films &amp;<br>Campaigns</h2>
+        <p class="work-note reveal reveal-delay-1">Every project begins with a directorial vision.<br>AI is the medium — not the author.</p>
+    </div>
+    <div class="work-grid">
+        <article class="work-card reveal">
+            <div class="card-thumb"><div class="ph"><div class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+            <div class="card-overlay"><span>View Project</span></div>
+            <div class="card-meta">
+                <div class="card-cat">AI Short Film — 2026</div>
+                <div class="card-name">Little Red</div>
+                <div class="card-desc">Pixar-style cinematic trailer. Story-first AI filmmaking — from script to final frame using LTX Studio.</div>
+            </div>
+        </article>
+        <article class="work-card reveal reveal-delay-1">
+            <div class="card-thumb"><div class="ph"><div class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+            <div class="card-overlay"><span>View Project</span></div>
+            <div class="card-meta">
+                <div class="card-cat">Platform Demo — 2026</div>
+                <div class="card-name">LTX Studio</div>
+                <div class="card-desc">30-second cinematic showcase of LTX's generative video platform.</div>
+            </div>
+        </article>
+        <article class="work-card reveal reveal-delay-1">
+            <div class="card-thumb"><div class="ph"></div></div>
+            <div class="card-overlay"><span>Coming Soon</span></div>
+            <div class="card-meta"><div class="card-cat">AI Campaign — 2026</div><div class="card-name">New Work</div><div class="card-desc">More coming soon.</div></div>
+        </article>
+        <article class="work-card reveal reveal-delay-2">
+            <div class="card-thumb"><div class="ph"></div></div>
+            <div class="card-overlay"><span>Coming Soon</span></div>
+            <div class="card-meta"><div class="card-cat">AI Film — 2026</div><div class="card-name">New Work</div><div class="card-desc">More coming soon.</div></div>
+        </article>
+    </div>
+</section>
+<section id="about" class="section">
+    <div class="section-head"><span class="label">About</span><div class="section-rule"></div></div>
+    <div class="about-grid">
+        <div class="about-left reveal">
+            <h2>Not a prompt<br>engineer.<br><em>A director.</em></h2>
+            <div class="capabilities">
+                <div class="cap-item"><span class="cap-num">01</span> Concept &amp; Story Direction</div>
+                <div class="cap-item"><span class="cap-num">02</span> AI Film Production</div>
+                <div class="cap-item"><span class="cap-num">03</span> Campaign &amp; Brand Films</div>
+                <div class="cap-item"><span class="cap-num">04</span> Post-Production &amp; Finishing</div>
+                <div class="cap-item"><span class="cap-num">05</span> Creative AI Consulting</div>
+            </div>
+        </div>
+        <div class="about-right reveal reveal-delay-1">
+            <p>I'm <strong>Yoav Shtibelman</strong> — an AI director and video creator building at the frontier of generative cinema. Based in Israel, working globally.</p>
+            <p>I create cinematic, <strong>story-first films</strong> — from 30-second brand campaigns to full narrative shorts. Every project starts with a clear directorial vision and ends with a film that doesn't look like AI.</p>
+            <p>I work with <strong>LTX Studio</strong> and a curated toolkit of generative tools, treating AI as a filmmaking medium — not a shortcut.</p>
+            <p>The work is fast. The craft is slow. The result is cinematic.</p>
+            <blockquote class="about-quote"><p>"The dynamic principle of fantasy is play — and without this playing with fantasy, no creative work has ever yet come to birth."<br>— Carl Jung</p></blockquote>
+        </div>
+    </div>
+</section>
+<section id="contact" class="section">
+    <div class="section-head" style="justify-content:center"><span class="label">Get in Touch</span></div>
+    <h2 class="contact-super reveal">Let's make<br>something <em>real.</em></h2>
+    <p class="contact-sub reveal reveal-delay-1">Available for brand films, creative collaborations &amp; AI direction</p>
+    <div class="contact-btns reveal reveal-delay-2">
+        <a href="mailto:yshtibelman@lightricks.com" class="btn btn-primary"><span>Send an Email</span></a>
+        <a href="https://linkedin.com/in/yoavshtibelman" class="btn" target="_blank" rel="noopener"><span>LinkedIn</span></a>
+        <a href="https://youtube.com/@yoavshtibelman" class="btn" target="_blank" rel="noopener"><span>YouTube</span></a>
+    </div>
+</section>
+<footer>
+    <span>© 2026 Yoav Shtibelman</span>
+    <span>AI Director &amp; Video Creator — Jerusalem, Israel</span>
+</footer>
+<script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
