@@ -47,9 +47,7 @@
             white-space: nowrap;
         }
 
-        .header-center {
-            text-align: center;
-        }
+        .header-center { text-align: center; }
 
         .header-center-label {
             font-family: 'Space Grotesk', sans-serif;
@@ -79,9 +77,7 @@
         }
         .header-links a:hover { opacity: 0.6; }
 
-        .header-right {
-            text-align: right;
-        }
+        .header-right { text-align: right; }
 
         .site-role {
             font-family: 'Space Grotesk', sans-serif;
@@ -92,10 +88,7 @@
         }
 
         /* ── PAGE WRAP ── */
-        .page-wrap {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .page-wrap { max-width: 1400px; margin: 0 auto; }
 
         /* ── GRID ── */
         .grid {
@@ -107,12 +100,7 @@
             border-right: 1px solid var(--border);
         }
 
-        .card {
-            position: relative;
-            background: var(--bg);
-            overflow: hidden;
-            cursor: pointer;
-        }
+        .card { position: relative; background: var(--bg); overflow: hidden; cursor: pointer; }
 
         .card-thumb {
             aspect-ratio: 16 / 9;
@@ -122,38 +110,24 @@
         }
 
         .card-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            width: 100%; height: 100%;
+            object-fit: cover; display: block;
             transition: transform 0.6s ease, opacity 0.3s;
             opacity: 0.8;
         }
         .card:hover .card-thumb img { transform: scale(1.03); opacity: 1; }
 
         .card-thumb .ph {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             background: #0e0e0e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
-        .ph-dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--muted);
-            opacity: 0.4;
-        }
+        .ph-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); opacity: 0.4; }
 
         .play-overlay {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s;
             background: rgba(10,10,10,0.5);
         }
         .card:hover .play-overlay { opacity: 1; }
@@ -162,30 +136,20 @@
             width: 44px; height: 44px;
             border: 1px solid rgba(232,228,222,0.6);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
         .play-icon svg { width: 16px; height: 16px; fill: var(--text); margin-left: 3px; }
 
         .card-label {
             padding: 0.75rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
+            display: flex; justify-content: space-between; align-items: baseline;
             border-top: 1px solid var(--border);
         }
         .card-title { font-size: 0.72rem; letter-spacing: 0.05em; color: var(--text); font-weight: 400; }
         .card-year { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; }
 
         /* ── INLINE VIDEO ── */
-        .card-thumb iframe {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        .card-thumb iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
 
         /* ── ABOUT ── */
         .about {
@@ -195,8 +159,19 @@
             border-right: 1px solid var(--border);
         }
 
-        .about-inner {
-            max-width: 800px;
+        .about-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 3.5rem;
+            align-items: start;
+            max-width: 860px;
+        }
+
+        .about-photo img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
         }
 
         .about-label {
@@ -204,29 +179,43 @@
             font-size: 0.8rem;
             font-weight: 400;
             color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-headline {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--text);
+            line-height: 1.3;
             margin-bottom: 1.25rem;
         }
 
-        .about-text {
+        .about-bio {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             font-weight: 300;
-            line-height: 1.75;
+            line-height: 1.85;
             color: var(--text);
-            opacity: 0.85;
+            opacity: 0.65;
+            margin-bottom: 1.25rem;
+        }
+
+        .about-current {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.85;
+            color: var(--text);
         }
 
         /* ── FOOTER ── */
         footer {
             padding: 1.25rem 2rem;
             border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             font-family: 'Space Mono', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
+            font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
             color: var(--muted);
         }
         footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
@@ -240,6 +229,8 @@
             .site-name { font-size: 2rem; }
             .header-links { justify-content: flex-start; }
             .grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .about-photo img { max-width: 160px; }
             footer { padding: 1rem; flex-direction: column; gap: 0.5rem; text-align: center; }
         }
         @media (min-width: 641px) and (max-width: 900px) {
@@ -275,134 +266,96 @@
     <div class="card" data-video="PD7gEUz17n0">
         <div class="card-thumb">
             <img src="https://img.youtube.com/vi/PD7gEUz17n0/hqdefault.jpg" alt="Little Red" onerror="this.src='https://img.youtube.com/vi/PD7gEUz17n0/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Little Red</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">Little Red</span><span class="card-year">2026</span></div>
     </div>
 
     <!-- Card 2 — Episode 01 -->
     <div class="card" data-video="VzhS1tiwHvg">
         <div class="card-thumb">
             <img src="https://img.youtube.com/vi/VzhS1tiwHvg/hqdefault.jpg" alt="Episode 01" onerror="this.src='https://img.youtube.com/vi/VzhS1tiwHvg/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Episode 01</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">Episode 01</span><span class="card-year">2026</span></div>
     </div>
 
     <!-- Card 3 — VOLT orange -->
     <div class="card" data-video="lMVJ7-E5dbc">
         <div class="card-thumb">
             <img src="https://img.youtube.com/vi/lMVJ7-E5dbc/hqdefault.jpg" alt="VOLT orange" onerror="this.src='https://img.youtube.com/vi/lMVJ7-E5dbc/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">VOLT orange</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">VOLT orange</span><span class="card-year">2026</span></div>
     </div>
 
     <!-- Card 4 — VOLT Mint -->
     <div class="card" data-video="7xtX_5lKFuc">
         <div class="card-thumb">
             <img src="https://img.youtube.com/vi/7xtX_5lKFuc/hqdefault.jpg" alt="VOLT Mint" onerror="this.src='https://img.youtube.com/vi/7xtX_5lKFuc/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">VOLT Mint</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">VOLT Mint</span><span class="card-year">2026</span></div>
     </div>
 
     <!-- Card 5 — VOLT Lemon -->
     <div class="card" data-video="o5h_HsuSjIA">
         <div class="card-thumb">
             <img src="https://img.youtube.com/vi/o5h_HsuSjIA/hqdefault.jpg" alt="VOLT Lemon" onerror="this.src='https://img.youtube.com/vi/o5h_HsuSjIA/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">VOLT Lemon</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">VOLT Lemon</span><span class="card-year">2026</span></div>
     </div>
 
     <!-- Card 6 — Zen Campaign -->
     <div class="card" data-video="016Da6uBk_c">
         <div class="card-thumb">
             <img src="https://img.youtube.com/vi/016Da6uBk_c/hqdefault.jpg" alt="Zen Campaign" onerror="this.src='https://img.youtube.com/vi/016Da6uBk_c/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Zen Campaign</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">Zen Campaign</span><span class="card-year">2026</span></div>
     </div>
 
     <!-- Card 7 — BYD -->
     <div class="card" data-video="iTNCXL7IoAQ">
         <div class="card-thumb">
             <img src="https://img.youtube.com/vi/iTNCXL7IoAQ/hqdefault.jpg" alt="BYD" onerror="this.src='https://img.youtube.com/vi/iTNCXL7IoAQ/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">BYD</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">BYD</span><span class="card-year">2026</span></div>
     </div>
 
-    <!-- Card 8 -->
+    <!-- Card 8 — Levitation -->
     <div class="card" data-video="zOf1m-X-eyc">
         <div class="card-thumb">
             <img src="https://img.youtube.com/vi/zOf1m-X-eyc/hqdefault.jpg" alt="Levitation" onerror="this.src='https://img.youtube.com/vi/zOf1m-X-eyc/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Levitation</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">Levitation</span><span class="card-year">2026</span></div>
     </div>
 
-    <!-- Card 9 -->
+    <!-- Card 9 — Inception AI -->
     <div class="card" data-video="xrZ0SkHSuCg">
         <div class="card-thumb">
             <img src="https://img.youtube.com/vi/xrZ0SkHSuCg/hqdefault.jpg" alt="Inception AI" onerror="this.src='https://img.youtube.com/vi/xrZ0SkHSuCg/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Inception AI</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">Inception AI</span><span class="card-year">2026</span></div>
     </div>
 
 </main>
 
 <section class="about" id="about">
-    <div class="about-inner">
-        <div class="about-label">About</div>
-        <p class="about-text">Director and AI video creator with 15+ years spanning animation, 3D and cinematic storytelling. Trained at Ringling College of Art and Design, he honed his craft at Pixar Animation Studios and Sony Pictures Imageworks before leading the 3D department at MoonActive — creators of the world's most-downloaded mobile games. Now at Lightricks as the in-house AI Video Creator for LTX Studio and selected for the Luma AI Dream Machine Creator Program, he ships campaign-quality commercials end-to-end, from brief to final frame, entirely with AI.</p>
+    <div class="about-grid">
+        <div class="about-photo">
+            <img src="photo.jpg" alt="Yoav Shtibelman">
+        </div>
+        <div class="about-content">
+            <div class="about-label">About</div>
+            <div class="about-headline">AI Director. AI Video Creator.</div>
+            <p class="about-bio">15+ years across animation, 3D, and cinematic storytelling. Studied at Ringling College of Art and Design. Honed my craft at Pixar and Sony Pictures Imageworks. Led the 3D department at MoonActive, creators of the world's most-downloaded mobile games.</p>
+            <p class="about-current">Today, in-house AI Video Creator at Lightricks — using AI to tell stories that weren't possible before.</p>
+        </div>
     </div>
 </section>
 
@@ -419,7 +372,7 @@
             var vid = card.dataset.video;
             if (!vid) return;
             var thumb = card.querySelector('.card-thumb');
-            if (thumb.querySelector('iframe')) return; // already playing
+            if (thumb.querySelector('iframe')) return;
             var iframe = document.createElement('iframe');
             iframe.src = 'https://www.youtube.com/embed/' + vid + '?autoplay=1';
             iframe.allowFullscreen = true;
