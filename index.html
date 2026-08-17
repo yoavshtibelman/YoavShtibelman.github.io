@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yoav Shtibelman</title>
-    <meta name="description" content="AI Video Creator">
+    <meta name="description" content="AI Director & Video Creator. AI-first cinematic storytelling.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
@@ -14,8 +14,9 @@
         :root {
             --bg: #ffffff;
             --text: #0a0a0a;
-            --muted: #999999;
+            --muted: #888888;
             --border: #e0e0e0;
+            --accent: #0a0a0a;
         }
 
         html, body {
@@ -23,92 +24,147 @@
             color: var(--text);
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 300;
-            min-height: 100vh;
         }
 
-        /* ── HEADER ── */
-        header {
-            padding: 1.25rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg);
             border-bottom: 1px solid var(--border);
-            gap: 1rem;
+            padding: 0 2rem;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .site-name {
+        .nav-name {
             font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: 1rem;
             font-weight: 400;
             letter-spacing: -0.01em;
-            color: var(--text);
             text-decoration: none;
-            line-height: 1;
-            white-space: nowrap;
+            color: var(--text);
         }
 
-        .header-center {
-            text-align: center;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
 
-        .header-center-label {
+        .nav-links a {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.8rem;
             font-weight: 400;
-            letter-spacing: 0;
-            text-transform: none;
-            color: var(--text);
-            margin-bottom: 0.25rem;
-        }
-
-        .header-links {
-            display: flex;
-            justify-content: flex-start;
-            gap: 1rem;
-        }
-
-        .header-links a {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 300;
-            letter-spacing: 0;
-            text-transform: none;
             color: var(--text);
             text-decoration: none;
             transition: opacity 0.2s;
+            position: relative;
+            overflow: hidden;
         }
-        .header-links a:hover { opacity: 0.6; }
+        .nav-links a:hover { opacity: 0.45; }
 
-        .header-right {
-            text-align: right;
+        /* ── HERO ── */
+        .hero {
+            min-height: calc(100vh - 56px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 4rem 2rem 2.5rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        .site-role {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 300;
-            letter-spacing: 0;
+        .hero-top {}
+
+        .hero-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-headline {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 8rem);
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: -0.02em;
             color: var(--text);
+            max-width: 900px;
         }
 
-        /* ── PAGE WRAP ── */
-        .page-wrap {
-            max-width: 1400px;
-            margin: 0 auto;
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
 
-        /* ── GRID ── */
+        .hero-bio {
+            max-width: 400px;
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.75;
+            color: var(--text);
+            opacity: 0.65;
+        }
+
+        .hero-scroll {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .hero-scroll::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--muted);
+        }
+
+        /* ── SECTION HEADER ── */
+        .section-header {
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .section-count {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+        }
+
+        /* ── WORK GRID ── */
         .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1px;
             background: var(--border);
-            border-left: 1px solid var(--border);
-            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
         .card {
-            position: relative;
             background: var(--bg);
             overflow: hidden;
             cursor: pointer;
@@ -127,9 +183,9 @@
             object-fit: cover;
             display: block;
             transition: transform 0.6s ease, opacity 0.3s;
-            opacity: 0.8;
+            opacity: 0.75;
         }
-        .card:hover .card-thumb img { transform: scale(1.03); opacity: 1; }
+        .card:hover .card-thumb img { transform: scale(1.04); opacity: 1; }
 
         .card-thumb .ph {
             width: 100%;
@@ -140,10 +196,9 @@
             justify-content: center;
         }
         .ph-dot {
-            width: 6px; height: 6px;
+            width: 5px; height: 5px;
             border-radius: 50%;
-            background: var(--muted);
-            opacity: 0.4;
+            background: #444;
         }
 
         .play-overlay {
@@ -153,20 +208,20 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.3s;
-            background: rgba(10,10,10,0.5);
+            transition: opacity 0.25s;
+            background: rgba(0,0,0,0.45);
         }
         .card:hover .play-overlay { opacity: 1; }
 
         .play-icon {
-            width: 44px; height: 44px;
-            border: 1px solid rgba(232,228,222,0.6);
+            width: 40px; height: 40px;
+            border: 1px solid rgba(255,255,255,0.5);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .play-icon svg { width: 16px; height: 16px; fill: var(--text); margin-left: 3px; }
+        .play-icon svg { width: 14px; height: 14px; fill: #fff; margin-left: 2px; }
 
         .card-label {
             padding: 0.75rem 1rem;
@@ -175,10 +230,19 @@
             align-items: baseline;
             border-top: 1px solid var(--border);
         }
-        .card-title { font-size: 1rem; letter-spacing: 0; color: var(--text); font-weight: 600; font-family: 'Space Grotesk', sans-serif; }
-        .card-year { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; }
+        .card-title {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .card-year {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+        }
 
-        /* ── INLINE VIDEO ── */
         .card-thumb iframe {
             position: absolute;
             inset: 0;
@@ -189,47 +253,48 @@
 
         /* ── ABOUT ── */
         .about {
-            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             border-bottom: 1px solid var(--border);
+        }
+
+        .about-photo-col {
             border-left: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .about-photo-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(20%);
+        }
+
+        .about-text-col {
+            padding: 4rem 3rem;
             border-right: 1px solid var(--border);
         }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 3.5rem;
-            align-items: start;
-            max-width: 860px;
-        }
-
-        .about-photo img {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            display: block;
-        }
-
         .about-label {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: var(--text);
-            margin-bottom: 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 2.5rem;
         }
 
         .about-headline {
             font-family: 'Archivo Black', sans-serif;
-            font-size: 1.3rem;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
             font-weight: 400;
-            color: var(--text);
-            line-height: 1.3;
-            margin-bottom: 1.25rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
         }
 
         .about-bio {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 300;
             line-height: 1.85;
             color: var(--text);
@@ -238,22 +303,75 @@
         }
 
         .about-current {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 400;
             line-height: 1.85;
             color: var(--text);
         }
 
-        @media (max-width: 640px) {
-            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .about-photo img { max-width: 160px; }
+        .about-cta {
+            margin-top: 3rem;
         }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text);
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
+        }
+        .btn-link:hover { opacity: 0.45; }
+        .btn-link::after { content: '→'; }
+
+        /* ── CONTACT TEASER ── */
+        .contact-teaser {
+            padding: 5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .contact-teaser-headline {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-teaser-right {
+            flex-shrink: 0;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--bg);
+            background: var(--text);
+            text-decoration: none;
+            padding: 0.9rem 1.75rem;
+            border-radius: 2px;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+        .btn-primary:hover { opacity: 0.7; }
+        .btn-primary::after { content: '→'; }
 
         /* ── FOOTER ── */
         footer {
             padding: 1.25rem 2rem;
-            border-top: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -268,233 +386,190 @@
 
         /* ── MOBILE ── */
         @media (max-width: 640px) {
-            header { grid-template-columns: 1fr; gap: 0.75rem; padding: 1.25rem 1rem; }
-            .header-center { text-align: left; }
-            .header-right { text-align: left; }
-            .site-name { font-size: 2rem; }
-            .header-links { justify-content: flex-start; }
+            nav { padding: 0 1.25rem; }
+            .nav-links { gap: 1.25rem; }
+            .hero { padding: 2.5rem 1.25rem 2rem; min-height: auto; }
+            .hero-headline { font-size: clamp(2.8rem, 12vw, 4rem); }
+            .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+            .section-header { padding: 0.75rem 1.25rem; }
             .grid { grid-template-columns: 1fr; }
-            footer { padding: 1rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+            .about { grid-template-columns: 1fr; }
+            .about-photo-col { aspect-ratio: 4/3; }
+            .about-text-col { padding: 2.5rem 1.25rem; border-right: none; }
+            .contact-teaser { flex-direction: column; align-items: flex-start; padding: 3rem 1.25rem; }
+            footer { padding: 1rem 1.25rem; flex-direction: column; gap: 0.5rem; }
         }
-        @media (min-width: 641px) and (max-width: 900px) {
+
+        @media (min-width: 641px) and (max-width: 1024px) {
             .grid { grid-template-columns: repeat(2, 1fr); }
+            .about { grid-template-columns: 1fr; }
+            .about-photo-col { aspect-ratio: 16/7; }
         }
     </style>
 </head>
 <body>
 
-<div class="page-wrap">
+<!-- ── NAV ── -->
+<nav>
+    <a href="/" class="nav-name">Yoav Shtibelman</a>
+    <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 
-<header>
-    <div class="header-left">
-        <div class="header-center-label">Quick Links</div>
-        <div class="header-links">
-            <a href="#work">Work</a>
-            <a href="#about">About</a>
-            <a href="mailto:yshtibelman@lightricks.com">Contact</a>
-        </div>
+<!-- ── HERO ── -->
+<section class="hero">
+    <div class="hero-top">
+        <div class="hero-label">AI Director &amp; Video Creator — Tel Aviv</div>
+        <h1 class="hero-headline">Stories that weren't possible before.</h1>
     </div>
-    <div class="header-center">
-        <a href="/" class="site-name">Yoav Shtibelman</a>
+    <div class="hero-bottom">
+        <p class="hero-bio">15+ years across animation, 3D, and cinematic storytelling. Pixar. Sony Pictures. Now using AI to push what's possible in video.</p>
+        <div class="hero-scroll">Scroll to work</div>
     </div>
-    <div class="header-right">
-        <div class="header-center-label">Remote and Onsite</div>
-        <span class="site-role">AI Video Creator</span>
-    </div>
-</header>
+</section>
 
-<main class="grid" id="work">
+<!-- ── WORK ── -->
+<div class="section-header" id="work">
+    <span class="section-label">Work</span>
+    <span class="section-count">12 projects</span>
+</div>
 
-    <!-- Card 1 — Little Red -->
+<main class="grid">
+
     <div class="card" data-video="PD7gEUz17n0">
         <div class="card-thumb">
-            <img src="https://img.youtube.com/vi/PD7gEUz17n0/hqdefault.jpg" alt="Little Red" onerror="this.src='https://img.youtube.com/vi/PD7gEUz17n0/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <img src="https://img.youtube.com/vi/PD7gEUz17n0/hqdefault.jpg" alt="Little Red">
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Little Red</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">Little Red</span><span class="card-year">2026</span></div>
     </div>
 
-    <!-- Card 2 — Episode 01 -->
     <div class="card" data-video="VzhS1tiwHvg">
         <div class="card-thumb">
-            <img src="https://img.youtube.com/vi/VzhS1tiwHvg/hqdefault.jpg" alt="Episode 01" onerror="this.src='https://img.youtube.com/vi/VzhS1tiwHvg/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <img src="https://img.youtube.com/vi/VzhS1tiwHvg/hqdefault.jpg" alt="Episode 01">
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Episode 01</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">Episode 01</span><span class="card-year">2026</span></div>
     </div>
 
-    <!-- Card 3 — VOLT orange -->
     <div class="card" data-video="lMVJ7-E5dbc">
         <div class="card-thumb">
-            <img src="https://img.youtube.com/vi/lMVJ7-E5dbc/hqdefault.jpg" alt="VOLT orange" onerror="this.src='https://img.youtube.com/vi/lMVJ7-E5dbc/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <img src="https://img.youtube.com/vi/lMVJ7-E5dbc/hqdefault.jpg" alt="VOLT orange">
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">VOLT orange</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">VOLT orange</span><span class="card-year">2026</span></div>
     </div>
 
-    <!-- Card 4 — VOLT Mint -->
     <div class="card" data-video="7xtX_5lKFuc">
         <div class="card-thumb">
-            <img src="https://img.youtube.com/vi/7xtX_5lKFuc/hqdefault.jpg" alt="VOLT Mint" onerror="this.src='https://img.youtube.com/vi/7xtX_5lKFuc/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <img src="https://img.youtube.com/vi/7xtX_5lKFuc/hqdefault.jpg" alt="VOLT Mint">
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">VOLT Mint</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">VOLT Mint</span><span class="card-year">2026</span></div>
     </div>
 
-    <!-- Card 5 — VOLT Lemon -->
     <div class="card" data-video="o5h_HsuSjIA">
         <div class="card-thumb">
-            <img src="https://img.youtube.com/vi/o5h_HsuSjIA/hqdefault.jpg" alt="VOLT Lemon" onerror="this.src='https://img.youtube.com/vi/o5h_HsuSjIA/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <img src="https://img.youtube.com/vi/o5h_HsuSjIA/hqdefault.jpg" alt="VOLT Lemon">
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">VOLT Lemon</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">VOLT Lemon</span><span class="card-year">2026</span></div>
     </div>
 
-    <!-- Card 6 — Zen Campaign -->
     <div class="card" data-video="016Da6uBk_c">
         <div class="card-thumb">
-            <img src="https://img.youtube.com/vi/016Da6uBk_c/hqdefault.jpg" alt="Zen Campaign" onerror="this.src='https://img.youtube.com/vi/016Da6uBk_c/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <img src="https://img.youtube.com/vi/016Da6uBk_c/hqdefault.jpg" alt="Zen Campaign">
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Zen Campaign</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">Zen Campaign</span><span class="card-year">2026</span></div>
     </div>
 
-    <!-- Card 7 — BYD -->
     <div class="card" data-video="iTNCXL7IoAQ">
         <div class="card-thumb">
-            <img src="https://img.youtube.com/vi/iTNCXL7IoAQ/hqdefault.jpg" alt="BYD" onerror="this.src='https://img.youtube.com/vi/iTNCXL7IoAQ/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <img src="https://img.youtube.com/vi/iTNCXL7IoAQ/hqdefault.jpg" alt="BYD">
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">BYD</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">BYD</span><span class="card-year">2026</span></div>
     </div>
 
-    <!-- Card 8 — Levitation -->
     <div class="card" data-video="zOf1m-X-eyc">
         <div class="card-thumb">
-            <img src="https://img.youtube.com/vi/zOf1m-X-eyc/hqdefault.jpg" alt="Levitation" onerror="this.src='https://img.youtube.com/vi/zOf1m-X-eyc/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <img src="https://img.youtube.com/vi/zOf1m-X-eyc/hqdefault.jpg" alt="Levitation">
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Levitation</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">Levitation</span><span class="card-year">2026</span></div>
     </div>
 
-    <!-- Card 9 — Inception AI -->
     <div class="card" data-video="xrZ0SkHSuCg">
         <div class="card-thumb">
-            <img src="https://img.youtube.com/vi/xrZ0SkHSuCg/hqdefault.jpg" alt="Inception AI" onerror="this.src='https://img.youtube.com/vi/xrZ0SkHSuCg/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <img src="https://img.youtube.com/vi/xrZ0SkHSuCg/hqdefault.jpg" alt="Inception AI">
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Inception AI</span>
-            <span class="card-year">2026</span>
-        </div>
+        <div class="card-label"><span class="card-title">Inception AI</span><span class="card-year">2026</span></div>
     </div>
 
-    <!-- Card 10 — Vatican -->
     <div class="card" data-video="1083848412" data-platform="vimeo">
         <div class="card-thumb">
             <div class="ph"><div class="ph-dot"></div></div>
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Vatican</span>
-            <span class="card-year">2025</span>
-        </div>
+        <div class="card-label"><span class="card-title">Vatican</span><span class="card-year">2025</span></div>
     </div>
 
-    <!-- Card 11 — Ma'agalim -->
     <div class="card" data-video="zgHHph-CrC8">
         <div class="card-thumb">
-            <img src="https://img.youtube.com/vi/zgHHph-CrC8/hqdefault.jpg" alt="Ma'agalim" onerror="this.src='https://img.youtube.com/vi/zgHHph-CrC8/mqdefault.jpg'">
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <img src="https://img.youtube.com/vi/zgHHph-CrC8/hqdefault.jpg" alt="Ma'agalim">
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Ma'agalim</span>
-            <span class="card-year">2025</span>
-        </div>
+        <div class="card-label"><span class="card-title">Ma'agalim</span><span class="card-year">2025</span></div>
     </div>
 
-    <!-- Card 12 — Hotel Transylvania Reel -->
     <div class="card" data-video="144176848" data-platform="vimeo">
         <div class="card-thumb">
             <div class="ph"><div class="ph-dot"></div></div>
-            <div class="play-overlay">
-                <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
+            <div class="play-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
-        <div class="card-label">
-            <span class="card-title">Hotel Transylvania Reel</span>
-            <span class="card-year">2015</span>
-        </div>
+        <div class="card-label"><span class="card-title">Hotel Transylvania Reel</span><span class="card-year">2015</span></div>
     </div>
 
 </main>
 
-<section class="about" id="about">
-    <div class="about-grid">
-        <div class="about-photo">
-            <img src="17152333296713.jpeg" alt="Yoav Shtibelman">
+<!-- ── ABOUT ── -->
+<div class="section-header" id="about">
+    <span class="section-label">About</span>
+</div>
+
+<section class="about">
+    <div class="about-text-col">
+        <div class="about-label">AI Director. Video Creator.</div>
+        <h2 class="about-headline">Cinematic storytelling at the frontier of AI.</h2>
+        <p class="about-bio">15+ years across animation, 3D, and cinematic storytelling. Studied at Ringling College of Art and Design. Honed my craft at Pixar and Sony Pictures Imageworks. Led the 3D department at MoonActive, creators of the world's most-downloaded mobile games.</p>
+        <p class="about-current">Today, in-house AI Video Creator at Lightricks — using AI to tell stories that weren't possible before.</p>
+        <div class="about-cta">
+            <a href="contact.html" class="btn-link">Let's work together</a>
         </div>
-        <div class="about-content">
-            <div class="about-label">About</div>
-            <div class="about-headline">AI Director. AI Video Creator.</div>
-            <p class="about-bio">15+ years across animation, 3D, and cinematic storytelling. Studied at Ringling College of Art and Design. Honed my craft at Pixar and Sony Pictures Imageworks. Led the 3D department at MoonActive, creators of the world's most-downloaded mobile games.</p>
-            <p class="about-current">Today, in-house AI Video Creator at Lightricks — using AI to tell stories that weren't possible before.</p>
-        </div>
+    </div>
+    <div class="about-photo-col">
+        <img src="17152333296713.jpeg" alt="Yoav Shtibelman">
     </div>
 </section>
 
-<footer>
-    <span>&#169; 2026 Yoav Shtibelman</span>
-    <a href="mailto:yshtibelman@lightricks.com">Contact</a>
-</footer>
+<!-- ── CONTACT TEASER ── -->
+<section class="contact-teaser">
+    <h2 class="contact-teaser-headline">Let's start<br>creating together.</h2>
+    <div class="contact-teaser-right">
+        <a href="contact.html" class="btn-primary">Get in touch</a>
+    </div>
+</section>
 
-</div><!-- /page-wrap -->
+<!-- ── FOOTER ── -->
+<footer>
+    <span>© 2026 Yoav Shtibelman</span>
+    <a href="contact.html">Contact</a>
+</footer>
 
 <script>
     document.querySelectorAll('.card').forEach(function(card) {
@@ -511,8 +586,7 @@
                     img.alt = card.querySelector('.card-title').textContent;
                     if (ph) thumb.replaceChild(img, ph);
                     else thumb.insertBefore(img, thumb.firstChild);
-                })
-                .catch(function() {});
+                }).catch(function() {});
         }
         card.addEventListener('click', function() {
             if (!vid) return;

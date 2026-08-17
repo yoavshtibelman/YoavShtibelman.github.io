@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Yoav Shtibelman</title>
+    <meta name="description" content="Get in touch with Yoav Shtibelman — AI Director & Video Creator.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #ffffff;
+            --text: #0a0a0a;
+            --muted: #888888;
+            --border: #e0e0e0;
+        }
+
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 300;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── NAV ── */
+        nav {
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .nav-name {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--text);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav-links a:hover { opacity: 0.45; }
+        .nav-links a.active { border-bottom: 1px solid var(--text); }
+
+        /* ── CONTACT MAIN ── */
+        .contact-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+
+        .contact-headline {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+        }
+
+        .contact-sub {
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.75;
+            color: var(--text);
+            opacity: 0.6;
+            max-width: 460px;
+            margin-bottom: 4rem;
+        }
+
+        /* ── CONTACT ITEMS ── */
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border-top: 1px solid var(--border);
+            max-width: 560px;
+        }
+
+        .contact-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            transition: opacity 0.2s;
+            gap: 2rem;
+        }
+        .contact-item:hover { opacity: 0.45; }
+
+        .contact-item-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            flex-shrink: 0;
+            width: 70px;
+        }
+
+        .contact-item-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            flex: 1;
+        }
+
+        .contact-item-arrow {
+            font-size: 0.9rem;
+            color: var(--muted);
+            flex-shrink: 0;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            flex-shrink: 0;
+        }
+        footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: var(--text); }
+
+        /* ── MOBILE ── */
+        @media (max-width: 640px) {
+            nav { padding: 0 1.25rem; }
+            .nav-links { gap: 1.25rem; }
+            .contact-main { padding: 3.5rem 1.25rem; justify-content: flex-start; }
+            .contact-headline { font-size: clamp(2.5rem, 12vw, 4rem); }
+            .contact-item { padding: 1.25rem 0; }
+            footer { padding: 1rem 1.25rem; flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <a href="index.html" class="nav-name">Yoav Shtibelman</a>
+    <ul class="nav-links">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ── CONTACT MAIN ── -->
+<main class="contact-main">
+    <div class="contact-label">Contact</div>
+    <h1 class="contact-headline">Let's work<br>together.</h1>
+    <p class="contact-sub">Always happy to chat about creative projects, AI video, or new opportunities. Feel free to reach out.</p>
+
+    <div class="contact-items">
+        <a href="mailto:yshtibelman@lightricks.com" class="contact-item">
+            <span class="contact-item-label">Email</span>
+            <span class="contact-item-value">yshtibelman@lightricks.com</span>
+            <span class="contact-item-arrow">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/yoavshtibelman" target="_blank" class="contact-item">
+            <span class="contact-item-label">LinkedIn</span>
+            <span class="contact-item-value">yoavshtibelman</span>
+            <span class="contact-item-arrow">↗</span>
+        </a>
+        <a href="https://www.youtube.com/@yoavshtibelman" target="_blank" class="contact-item">
+            <span class="contact-item-label">YouTube</span>
+            <span class="contact-item-value">@yoavshtibelman</span>
+            <span class="contact-item-arrow">↗</span>
+        </a>
+    </div>
+</main>
+
+<!-- ── FOOTER ── */
+<footer>
+    <span>© 2026 Yoav Shtibelman</span>
+    <a href="index.html">← Back to work</a>
+</footer>
+
+</body>
+</html>
